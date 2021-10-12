@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+	
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/user/signup.css}">
+<!-- JS読み込み -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<title>日付計算</title>
+</head>
+<body>
+	<h2>計算の基準となる日付を入力してください。</h2>
+			<div class="btn-toolbar">
+				<form th:action="@{/search}" method="get" th:object="${searchDate}">
+					<input type="text" name="searchDate" th:field="*{searchDate}">
+					<br>
+					
+					<br>
+					<button class="btn btn-primary" type="submit">計算実行</button>
+				</form>
+				<form th:action="@{/create}" method="get">
+					<button class="btn btn-primary" type="submit">新規登録</button>
+				</form>
+			</div>
+			<br>
+			<table class="table table-bordered">
+				<tr>
+					<th>No.</th>
+					<th>日付ID</th>
+					<th>計算式名</th>
+					<th>計算結果</th>
+					<th>年</th>
+					<th>月</th>
+					<th>日</th>
+					<th>編集</th>
+				</tr>
+				<tr th:each="result,no:${resultDate}">
+					<td th:text="${no.count}"></td>
+					<td th:text="${result.dateId}"></td>
+					<td th:text="${result.dateName}"></td>
+					<td th:text="${resultCalc.get(no.index)}"></td>
+					<td th:text="${result.year}"></td>
+					<td th:text="${result.month}"></td>
+					<td th:text="${result.day}"></td>
+					<td>
+					<form th:action="@{'/update/' + ${result.id}}" method="get">
+						<button class="btn btn-secondary" type="submit">更新</button>
+					</form>
+					<form th:action="@{'/delete/' + ${result.id}}" method="get">
+						<button class="btn btn-danger" type="submit">削除</button>
+					</form>
+					</td>
+				</tr>
+			</table>
+</body>
+</html>

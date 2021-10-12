@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.DateCalcMapper">
+
+	<select id="selectAll" resultType="com.example.demo.model.DateCalculation">
+		SELECT
+			dateId,
+			dateName,
+			year,
+			month,
+			day
+		FROM
+			datecalc
+	</select>
+	
+	<select id="selectOne" resultType="com.example.demo.model.DateCalculation">
+		SELECT
+			dateId,
+			dateName,
+			year,
+			month,
+			day
+		FROM
+			datecalc
+		WHERE
+			id = #{id}
+	</select>
+</mapper>
