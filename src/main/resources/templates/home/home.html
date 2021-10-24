@@ -17,16 +17,13 @@
 			<div class="btn-toolbar">
 				<form th:action="@{/search}" method="get" th:object="${searchDate}">
 					<input type="text" name="searchDate" th:field="*{searchDate}">
-					<br>
-					
-					<br>
-					<button class="btn btn-primary" type="submit">計算実行</button>
+						<button class="btn btn-primary" type="submit">計算実行</button>
 				</form>
-				<form th:action="@{/create}" method="get">
+				<form th:action="@{/register}" method="get">
 					<button class="btn btn-primary" type="submit">新規登録</button>
 				</form>
 			</div>
-			<br>
+			
 			<table class="table table-bordered">
 				<tr>
 					<th>No.</th>
@@ -42,15 +39,15 @@
 					<td th:text="${no.count}"></td>
 					<td th:text="${result.dateId}"></td>
 					<td th:text="${result.dateName}"></td>
-					<td th:text="${resultCalc.get(no.index)}"></td>
+					<td th:text="${resultCalc.get(no.count)}"></td>
 					<td th:text="${result.year}"></td>
 					<td th:text="${result.month}"></td>
 					<td th:text="${result.day}"></td>
 					<td>
-					<form th:action="@{'/update/' + ${result.id}}" method="get">
+					<form th:action="@{'/update/' + ${result.dateId}}" method="get">
 						<button class="btn btn-secondary" type="submit">更新</button>
 					</form>
-					<form th:action="@{'/delete/' + ${result.id}}" method="get">
+					<form th:action="@{'/delete/' + ${result.dateId}}" method="get">
 						<button class="btn btn-danger" type="submit">削除</button>
 					</form>
 					</td>

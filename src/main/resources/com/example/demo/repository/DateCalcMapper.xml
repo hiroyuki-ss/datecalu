@@ -7,25 +7,55 @@ PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
 
 	<select id="selectAll" resultType="com.example.demo.model.DateCalculation">
 		SELECT
-			dateId,
-			dateName,
-			year,
-			month,
-			day
+			*
 		FROM
 			datecalc
 	</select>
 	
 	<select id="selectOne" resultType="com.example.demo.model.DateCalculation">
 		SELECT
+			*
+		FROM
+			datecalc
+		WHERE
+			dateId = #{dateId}
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO datecalc (
 			dateId,
 			dateName,
 			year,
 			month,
-			day
-		FROM
+			day)
+	
+		VALUES (
+			#{dateId},
+			#{dateName},
+			#{year},
+			#{month},
+			#{day}
+			)
+	</insert>
+	
+	<update id="update">
+		UPDATE
 			datecalc
+		SET
+			dateName = #{dateName},
+			year = #{year},
+			month = #{month},
+			day = #{day}
 		WHERE
-			id = #{id}
-	</select>
+			dateId = #{dateId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM
+			datecalc
+		
+		WHERE
+			dateId = #{dateId}
+			
+	</delete>
 </mapper>

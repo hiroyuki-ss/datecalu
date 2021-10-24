@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/user/register.css}">
+<!-- JS読み込み -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<title>日付計算登録</title>
+</head>
+  <body class="bg-light">
+    <h2 class="text-center">新規登録画面</h2>
+    <form th:action="@{/register}" method="post" th:object="${dateCalculation}">
+       <!-- <div align="center"> -->
+       	<div class="form-group">
+        	<label for="dateID">日付ID</label>
+        	<input type="text" class="form-control" th:field="*{dateId}"> 
+       	</div>
+            <!-- <p>日付ID</p>
+            <input type="text" name="dateId" th:field="*{dateId}"> -->
+        <div class="form-group">
+        	<label for="dateName">計算式名</label>
+        	<input type="text" class="form-control" th:field="*{dateName}"> 
+       	</div>
+       	<div class="form-group">
+        	<label for="year">加減値（年）</label>
+        	<input type="text" class="form-control" th:field="*{year}"> 
+       	</div>
+       	<div class="form-group">
+        	<label for="month">加減値（月）</label>
+        	<input type="text" class="form-control" th:field="*{month}"> 
+       	</div>
+       	<div class="form-group">
+        	<label for="day">加減値（日）</label>
+        	<input type="text" class="form-control" th:field="*{day}"> 
+       	</div>
+       	<input type="submit" value="登録"
+       		class="btn btn-primary w-10 mt-3" />
+            
+            <!-- <p>計算式名</p>
+            <input type="text" name="dateName" th:field="*{dateName}">
+            <p>加減値（年）</p>
+            <input type="text" name="year" th:field="*{year}">
+            <p>加減値（月）</p>
+            <input type="text" name="month" th:field="*{month}">
+            <p>加減値（日）</p>
+            <input type="text" name="day" th:field="*{day}">
+      		<br>
+      		<br>
+      		<button class="btn btn-primary" type="submit">登録</button> -->
+	</form>
+		<!--<br>
+			<div align="center">
+			<form th:action="@{/home}" method="get">
+				<button class="btn btn-primary" type="submit">戻る</button>
+			</form>
+			</div> -->
+			<br>
+	<form th:action="@{/home}" method="get">
+		<button class="btn btn-primary" type="submit">戻る</button>
+	</form>
+  </body>
+</html>

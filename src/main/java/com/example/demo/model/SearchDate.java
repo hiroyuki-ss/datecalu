@@ -14,4 +14,7 @@ public class SearchDate {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyyMMdd")
 	private LocalDate searchDate;
+	
+
+
 }

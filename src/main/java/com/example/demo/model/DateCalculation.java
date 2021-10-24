@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class DateCalculation {
 	
-//	private int id;
+	//private int id;
 	
 	@NotBlank
 	private String dateId;
@@ -23,4 +23,5 @@ public class DateCalculation {
 	
 	@NotBlank
 	private int day;
+
 }

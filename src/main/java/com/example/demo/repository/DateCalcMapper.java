@@ -9,12 +9,14 @@ import com.example.demo.model.DateCalculation;
 @Mapper
 public interface DateCalcMapper {
 	
-//	@Select("SELECT * FROM datecalc ORDER BY dateID ASC")
-	public List<DateCalculation> selectAll();
 	
-//	@Select("SELECT * FROM datecalc WHERE dateId = #{dateId}")
+	public List<DateCalculation> selectAll();
+
 	public DateCalculation selectOne(String dateId);
 	
+	public void insert(DateCalculation date);
 	
+	public void update(DateCalculation date);
 	
+	public void delete(String dateId);
 }
