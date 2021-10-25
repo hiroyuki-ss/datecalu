@@ -16,6 +16,7 @@ public class DateCalculation {
 	@NotBlank
 	private String dateName;
 	
+	//以下@NotBlankからNotNullへ変更
 	@NotNull
 	private Integer year;
 	
