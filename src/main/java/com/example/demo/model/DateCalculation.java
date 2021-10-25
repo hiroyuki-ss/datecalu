@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -15,13 +16,13 @@ public class DateCalculation {
 	@NotBlank
 	private String dateName;
 	
-	@NotBlank
-	private int year;
+	@NotNull
+	private Integer year;
 	
-	@NotBlank
-	private int month;
+	@NotNull
+	private Integer month;
 	
-	@NotBlank
-	private int day;
+	@NotNull
+	private Integer day;
 
 }

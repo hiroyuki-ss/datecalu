@@ -110,7 +110,7 @@ public class DateCalcController {
 		return "redirect:/home";
 	}
 	
-	@GetMapping("/delete/{dateId}")
+	@PostMapping("/delete/{dateId}")
 	public String delete(@PathVariable String dateId) {
 		//serviceクラスのdeleteメソッドを呼び出し、指定したIdのdateIdを引数にする
 		service.delete(dateId);

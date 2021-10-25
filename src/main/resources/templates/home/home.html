@@ -47,7 +47,7 @@
 					<form th:action="@{'/update/' + ${result.dateId}}" method="get">
 						<button class="btn btn-secondary" type="submit">更新</button>
 					</form>
-					<form th:action="@{'/delete/' + ${result.dateId}}" method="get">
+					<form th:action="@{'/delete/' + ${result.dateId}}" method="post">
 						<button class="btn btn-danger" type="submit">削除</button>
 					</form>
 					</td>
