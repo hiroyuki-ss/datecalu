@@ -14,13 +14,10 @@
   <body class="bg-light">
     <h2 class="text-center">登録項目更新画面</h2>
     <form th:action="@{'/update/' + ${dateId}}" method="post" th:object="${updateDate}">
-       <!-- <div align="center"> -->
        	<div class="form-group">
         	<label for="dateID">日付ID</label>
         	<input type="text" class="form-control" name="dateID" th:value="*{dateId}" readonly> 
        	</div>
-            <!-- <p>日付ID</p>
-            <input type="text" name="dateId" th:field="*{dateId}"> -->
         <div class="form-group">
         	<label for="dateName">計算式名</label>
         	<input type="text" class="form-control" name="dateName" th:value="*{dateName}"> 
@@ -40,8 +37,6 @@
        	<input type="submit" value="更新"
        		class="btn btn-primary w-10 mt-3" />
 	</form>
-		<!-- 不要コメントを削除 -->
-	
 			<br>
 	<form th:action="@{/home}" method="get">
 		<button class="btn btn-primary" type="submit">戻る</button>
