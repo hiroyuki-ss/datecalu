@@ -25,13 +25,15 @@ public class DateCalcController {
 
 	@Autowired
 	private DateCalcService service;
-
+	
+	
 	//home.htmlに遷移
 	@GetMapping("/home")
 	public String getHome(@ModelAttribute SearchDate searchDate, Model model) {
 		return "home/home";
 		
 	}
+	
 	
 	@GetMapping("/search")
 	public String search(@ModelAttribute @Validated SearchDate searchDate, BindingResult bindingResult, Model model) throws ParseException {

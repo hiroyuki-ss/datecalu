@@ -38,6 +38,13 @@ dependencies {
     
     //*modelmapper インスタンスの内容をコピーしてくれるライブラリ
     implementation 'org.modelmapper:modelmapper:2.3.0'    
+    
+    //SpringSecurity
+   	implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+   	implementation 'org.springframework.security:spring-security-test'
+   	
+   	testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
