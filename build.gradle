@@ -26,7 +26,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
 	
 	implementation 'org.webjars:jquery:3.5.0'
     implementation 'org.webjars:bootstrap:4.4.1-1'
@@ -44,9 +44,39 @@ dependencies {
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
    	implementation 'org.springframework.security:spring-security-test'
    	
+   	testImplementation 'org.springframework.boot:spring-boot-starter-test'
    	testImplementation 'org.springframework.security:spring-security-test'
+   	
+   	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testRuntimeOnly 'com.h2database:h2'
+    
+    // Junit Jupiter 5.5.2 を導入
+  // 依存関係で以下等が導入される
+  // junit-jupiter-api:5.5.2
+  // junit-jupiter-engine:5.5.2
+  // junit-jupiter-platform-engine:1.5.2
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+  
+  testImplementation group: 'org.dbunit', name: 'dbunit', version: '2.6.0'
+  
+  
 }
 
 test {
 	useJUnitPlatform()
+	
+	
+  testLogging {
+    // テスト時の標準出力と標準エラー出力を表示する
+    showStandardStreams true
+    // イベントを出力する (TestLogEvent)
+    events 'started', 'skipped', 'passed', 'failed'
+    // 例外発生時の出力設定 (TestExceptionFormat)
+    exceptionFormat 'full'
+  }
 }

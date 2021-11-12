@@ -2,7 +2,6 @@ package com.example.demo.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,16 +13,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
-	//認証の設定
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
-		//インメモリ認証
-		auth
-			.inMemoryAuthentication()
-				.withUser("user")
-				.password(passwordEncoder().encode("user"))
-				.roles("USER");
+	//@Autowired
+	//private UserDetailsService userDetailsService;
+	
+	//インメモリ認証ユーザーのパスワードを暗号化
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+			
+		//パスワードをハッシュ化する
+		return new BCryptPasswordEncoder();	
 	}
 	
 	//セキュリティの対象外を設定
@@ -46,6 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/login").permitAll() //直リンクOK
+				.antMatchers("/user/signup").permitAll() //直リンクOK
 				.anyRequest().authenticated(); //それ以外は直リンクNG
 			
 		//ログイン処理
@@ -73,11 +72,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/login"); //ログアウト成功時の遷移先
 	}
 	
-	//インメモリ認証ユーザーのパスワードを暗号化
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		
-		//パスワードをハッシュ化する
-		return new BCryptPasswordEncoder();	
-	}
+	//認証の設定
+		//@Override
+		//protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+			
+			//PasswordEncoder encoder = passwordEncoder();
+			//インメモリ認証
+			//auth
+			//	.inMemoryAuthentication()
+			//		.withUser("user")
+			//		.password(encoder.encode("user"))
+			//		.roles("USER");
+			//auth
+			//	.userDetailsService(userDetailsService)
+			//	.passwordEncoder(encoder);
+		//}
 }
