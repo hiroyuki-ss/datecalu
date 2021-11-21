@@ -119,4 +119,5 @@ public class DateCalcController {
 		//指定したIdのデータが削除され、home.htmlへ遷移する
 		return "redirect:/home";
 	}
+	
 }

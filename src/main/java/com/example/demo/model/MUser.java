@@ -7,5 +7,5 @@ public class MUser {
 	
 	private String userId;
 	private String password;
-	private String role;
+	
 }

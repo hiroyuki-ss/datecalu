@@ -19,4 +19,5 @@ public interface DateCalcMapper {
 	public void update(DateCalculation date);
 	
 	public void delete(String dateId);
+	
 }

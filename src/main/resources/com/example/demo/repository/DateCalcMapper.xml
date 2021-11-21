@@ -58,4 +58,6 @@ PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
 			dateId = #{dateId}
 			
 	</delete>
+	
+	
 </mapper>

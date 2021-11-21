@@ -15,6 +15,7 @@ public class DateCalcService {
 	@Autowired
 	private DateCalcMapper mapper;
 	
+	
 	//全件取得、DB内の全てのデータを取ってくる
 	public List<DateCalculation> selectAll() {
 		//MapperクラスのselectAllメソッドが呼ばれて動く
@@ -30,6 +31,8 @@ public class DateCalcService {
 	
 	public void insert(DateCalculation date) {
 		//mapperクラスのinsertメソッドを呼び出し、dateを渡す
+		
+		
 		mapper.insert(date);
 	}
 	
@@ -37,7 +40,7 @@ public class DateCalcService {
 	public void update(DateCalculation date) {
 		//画面から入力された値の入った変数date、mapperクラスのupdateメソッド呼ばれる
 		//System.out.println(date);
-		mapper.update(date);
+		mapper.update(date);		
 		
 	}
 	
@@ -46,4 +49,5 @@ public class DateCalcService {
 		//mapperクラスのdeleteメソッドが呼ばれる、指定されてIdが引数dateIdで渡す
 		mapper.delete(dateId);
 	}
+	
 }
